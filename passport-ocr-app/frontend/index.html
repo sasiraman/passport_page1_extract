@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passport OCR Analyzer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+
+  <h1>🛂 Passport OCR, MRZ & Face Extraction</h1>
+
+  <!-- UPLOAD SECTION -->
+  <div id="upload-section" class="card">
+    <h2>Step 1: Upload Passport Image</h2>
+
+    <div id="dropzone">
+      <p>📁 Drag & Drop passport image here <br> OR <br> 👆 Click to Select</p>
+      <input type="file" id="fileInput" accept="image/*">
+    </div>
+
+    <div id="preview" style="display:none;">
+      <h3>Passport Image Preview</h3>
+      <img id="preview-image" />
+      <button id="processBtn">🔍 Process Passport</button>
+    </div>
+  </div>
+
+  <!-- LOADING -->
+  <div id="loading" class="card" style="display:none;">
+    <div class="spinner"></div>
+    <p>Processing passport… Please wait.</p>
+  </div>
+
+  <!-- RESULT SECTION -->
+  <div id="results" style="display:none;">
+
+    <div class="card">
+      <h2>👤 Extracted Face</h2>
+      <img id="face-image" class="face-img"/>
+    </div>
+
+    <div class="card">
+      <h2>🧬 MRZ Parsed Data</h2>
+      <table id="mrz-table"></table>
+    </div>
+
+    <div class="card">
+      <h2>📄 OCR Text</h2>
+      <pre id="ocr-text"></pre>
+    </div>
+
+  </div>
+
+  <!-- ERROR -->
+  <div id="error-box" class="error" style="display:none;"></div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
+
