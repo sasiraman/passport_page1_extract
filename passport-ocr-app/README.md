@@ -34,20 +34,26 @@ passport-ocr-app/
 
 ### Option 1: Using Docker Compose (Recommended)
 
-1. **Start the backend service:**
+1. **Build and start all services:**
    ```bash
    cd passport-ocr-app
    docker-compose up --build
    ```
 
-2. **Open the frontend:**
-   - Simply open `frontend/index.html` in your web browser
-   - Or use a local server:
-     ```bash
-     cd frontend
-     python -m http.server 8000
-     ```
-     Then visit `http://localhost:8000`
+2. **Access the application:**
+   - Frontend: Open `http://localhost:8080` in your web browser
+   - Backend API: Available at `http://localhost:5001`
+   - Health check: `http://localhost:5001/health`
+
+3. **Stop the services:**
+   ```bash
+   docker-compose down
+   ```
+
+4. **View logs:**
+   ```bash
+   docker-compose logs -f
+   ```
 
 ### Option 2: Manual Setup
 

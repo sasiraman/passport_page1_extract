@@ -82,7 +82,11 @@ processBtn.addEventListener("click", async () => {
   formData.append("file", selectedFile);
 
   try {
-    const res = await fetch("http://localhost:5000/process-passport", {
+    // Use /api proxy when running in Docker, direct localhost for local development
+    const backendUrl = window.location.port === '8080' || window.location.hostname !== 'localhost' 
+      ? '/api' 
+      : 'http://localhost:5001';
+    const res = await fetch(`${backendUrl}/process-passport`, {
       method: "POST",
       body: formData
     });
@@ -140,7 +144,7 @@ processBtn.addEventListener("click", async () => {
 
   } catch (err) {
     loading.style.display = "none";
-    showError("Server error: " + err.message + ". Make sure the backend is running on http://localhost:5000");
+    showError("Server error: " + err.message + ". Make sure the backend is running on http://localhost:5001");
   }
 });
 
